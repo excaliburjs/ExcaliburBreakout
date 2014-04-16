@@ -1,0 +1,14 @@
+﻿body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: black;
+}
+
+span {
+    font-style: italic;
+}
+
+canvas {
+    margin: auto;
+    display: block;
+    border-radius: 20px;
+}
