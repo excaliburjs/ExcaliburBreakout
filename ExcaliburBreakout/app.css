@@ -1,6 +1,7 @@
 ﻿body {
     font-family: 'Segoe UI', sans-serif;
     background-color: black;
+    color: white;
 }
 
 span {
@@ -11,4 +12,17 @@ canvas {
     margin: auto;
     display: block;
     border-radius: 20px;
+    cursor: none;
+}
+
+.container {
+    padding: 10px;
+    display: block;
+    margin: auto;
+    width: 800px;
+}
+
+#sound {
+    float: right;
+    padding: 10px;
 }

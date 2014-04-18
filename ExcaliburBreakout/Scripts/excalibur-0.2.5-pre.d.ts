@@ -810,6 +810,7 @@ declare module ex.Util {
     function drawLine(ctx: CanvasRenderingContext2D, color: string, startx: any, starty: any, endx: any, endy: any): void;
     function randomInRange(min: number, max: number): number;
     function getPosition(el: HTMLElement): Point;
+    function getOppositeSide(side: Side): Side;
     /**
     * Excaliburs dynamically resizing collection
     * @class Collection

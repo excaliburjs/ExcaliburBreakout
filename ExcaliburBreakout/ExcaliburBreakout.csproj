@@ -18,9 +18,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="index.html" />
-    <Content Include="Scripts\excalibur-0.2.2.js" />
-    <Content Include="Scripts\excalibur-0.2.2.min.js" />
+    <Content Include="Scripts\excalibur-0.2.5-pre.js" />
+    <Content Include="Scripts\excalibur-0.2.5-pre.min.js" />
     <Content Include="Sounds\bounce.wav" />
     <Content Include="Sounds\break.wav" />
     <Content Include="Sounds\fail.wav" />
@@ -28,12 +31,22 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="Ball.ts" />
+    <TypeScriptCompile Include="Brick.ts" />
     <TypeScriptCompile Include="Config.ts" />
-    <TypeScriptCompile Include="Scripts\excalibur-0.2.2.d.ts" />
+    <TypeScriptCompile Include="LevelOne.ts" />
+    <TypeScriptCompile Include="NextLevel.ts" />
+    <TypeScriptCompile Include="Paddle.ts" />
+    <TypeScriptCompile Include="Scripts\excalibur-0.2.5-pre.d.ts" />
+    <TypeScriptCompile Include="Util.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\excalibur-0.2.2.js.map" />
     <Content Include="packages.config" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\excalibur-0.2.5-pre.js.map" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

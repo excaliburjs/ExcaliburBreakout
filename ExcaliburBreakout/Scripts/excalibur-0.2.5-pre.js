@@ -1,4 +1,4 @@
-/*! excalibur - v0.2.2 - 2014-04-15
+/*! excalibur - v0.2.5 - 2014-04-17
 * https://github.com/excaliburjs/Excalibur
 * Copyright (c) 2014 ; Licensed BSD*/
 if (typeof window == 'undefined') {
@@ -3118,6 +3118,7 @@ var ex;
                 for (var drawing in this.frames) {
                     this.frames[drawing].addEffect(new ex.Effects.Opacity(this.opacity));
                 }
+
                 this.previousOpacity = this.opacity;
             }
 
@@ -3137,6 +3138,8 @@ var ex;
                     //var yDiff = (this.currentDrawing.height*this.currentDrawing.getScale() - this.height)/2;
                     this.currentDrawing.draw(ctx, -xDiff, -yDiff);
                 } else {
+                    if (this.color)
+                        this.color.a = this.opacity;
                     ctx.fillStyle = this.color ? this.color.toString() : (new ex.Color(0, 0, 0)).toString();
                     ctx.fillRect(0, 0, this.width, this.height);
                 }
@@ -6714,7 +6717,7 @@ var ex;
         */
         Color.prototype.toString = function () {
             var result = String(this.r.toFixed(0)) + ", " + String(this.g.toFixed(0)) + ", " + String(this.b.toFixed(0));
-            if (this.a) {
+            if (this.a !== undefined || this.a !== null) {
                 return "rgba(" + result + ", " + String(this.a) + ")";
             }
             return "rgb(" + result + ")";
@@ -7821,4 +7824,4 @@ var ex;
     ex.Engine = Engine;
     ;
 })(ex || (ex = {}));
-//# sourceMappingURL=excalibur-0.2.2.js.map
+//# sourceMappingURL=excalibur-0.2.5.js.map
