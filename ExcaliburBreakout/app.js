@@ -126,11 +126,30 @@ var Paddle = (function (_super) {
     __extends(Paddle, _super);
     function Paddle(x, y, width, height, engine, direction, leftRightMode) {
         if (typeof leftRightMode === "undefined") { leftRightMode = true; }
+        var _this = this;
         _super.call(this, x, y, width, height, ex.Color.Chartreuse);
         this.direction = direction;
         this.leftRightMode = leftRightMode;
 
         this.collisionType = 4 /* Fixed */;
+
+        engine.on('mousemove', function (e) {
+            if (leftRightMode) {
+                _this.x = e.x - _this.getWidth() / 2;
+            } else {
+                _this.y = e.y - _this.getHeight() / 2;
+            }
+        });
+
+        engine.on('touchmove', function (e) {
+            if (leftRightMode) {
+                var pos = e.y * (engine.getWidth() / engine.getHeight());
+                _this.x = pos;
+            } else {
+                var pos = e.x * (engine.getHeight() / engine.getWidth());
+                _this.y = pos;
+            }
+        });
     }
     Paddle.prototype.update = function (engine, delta) {
         _super.prototype.update.call(this, engine, delta);
@@ -138,10 +157,10 @@ var Paddle = (function (_super) {
             this.dx = 0;
             this.dy = 0;
             if (engine.isKeyPressed(37 /* Left */)) {
-                this.dx = -Config.PaddleSpeed * this.direction;
+                this.dx = -Config.PaddleSpeed; // * this.direction;
             }
             if (engine.isKeyPressed(39 /* Right */)) {
-                this.dx = Config.PaddleSpeed * this.direction;
+                this.dx = Config.PaddleSpeed; // * this.direction;
             }
 
             if (this.x < 0) {
@@ -154,11 +173,11 @@ var Paddle = (function (_super) {
         } else {
             this.dx = 0;
             this.dy = 0;
-            if (engine.isKeyPressed(37 /* Left */)) {
-                this.dy = -Config.PaddleSpeed * this.direction;
+            if (engine.isKeyPressed(38 /* Up */)) {
+                this.dy = -Config.PaddleSpeed; // * this.direction;
             }
-            if (engine.isKeyPressed(39 /* Right */)) {
-                this.dy = Config.PaddleSpeed * this.direction;
+            if (engine.isKeyPressed(40 /* Down */)) {
+                this.dy = Config.PaddleSpeed; // * this.direction;
             }
 
             if (this.y < 0) {
@@ -230,15 +249,6 @@ var LevelOne = (function (_super) {
         });
         this.addChild(score);
         this.addChild(serves);
-
-        engine.on('mousemove', function (e) {
-            paddle.x = e.x - paddle.getWidth() / 2;
-        });
-
-        engine.on('touchmove', function (e) {
-            var pos = e.y * (engine.getWidth() / engine.getHeight());
-            paddle.x = pos;
-        });
 
         this.onActivate = function () {
             State.CurrentLevel = 1;

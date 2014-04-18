@@ -46,14 +46,7 @@
         this.addChild(serves);
 
 
-        engine.on('mousemove', (e?: ex.MouseMove) => {
-            paddle.x = e.x - paddle.getWidth() / 2;
-        });
-
-        engine.on('touchmove', (e?: ex.TouchMove) => {
-            var pos = e.y * (engine.getWidth() / engine.getHeight());
-            paddle.x = pos;
-        });
+        
 
         this.onActivate = function () {
             State.CurrentLevel = 1;
