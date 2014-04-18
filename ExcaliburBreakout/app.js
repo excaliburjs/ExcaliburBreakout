@@ -30,9 +30,9 @@ var State = {
 };
 
 var Resources = {
-    Bounce: new ex.Sound("./Sounds/bounce.wav"),
-    Explode: new ex.Sound("./Sounds/break.wav"),
-    Fail: new ex.Sound("./Sounds/fail.wav")
+    Bounce: new ex.Sound("./Sounds/bounce.mp3", "./Sounds/bounce.wav"),
+    Explode: new ex.Sound("./Sounds/break.mp3", "./Sounds/break.wav"),
+    Fail: new ex.Sound("./Sounds/fail.mp3", "./Sounds/fail.wav")
 };
 
 Resources.Bounce.setVolume(.2);
@@ -194,7 +194,7 @@ var LevelOne = (function (_super) {
         var colors = [ex.Color.Violet, ex.Color.Red, ex.Color.Orange, ex.Color.Yellow];
         var bricks = [];
         var that = this;
-        for (var i = 0; i < 7; i++) {
+        for (var i = 0; i < 10; i++) {
             for (var j = 0; j < 4; j++) {
                 (function () {
                     var tmp = new Brick(100 * i + 30, j * 50, 90, 30, colors[j].clone());
@@ -236,7 +236,8 @@ var LevelOne = (function (_super) {
         });
 
         engine.on('touchmove', function (e) {
-            paddle.x = e.x - paddle.getWidth() / 2;
+            var pos = e.y * (engine.getWidth() / engine.getHeight());
+            paddle.x = pos;
         });
 
         this.onActivate = function () {
@@ -274,10 +275,10 @@ var NextLevel = (function (_super) {
         var colors = [ex.Color.Violet, ex.Color.Red, ex.Color.Orange, ex.Color.Yellow];
         var bricks = [];
         var that = this;
-        for (var i = 0; i < 4; i++) {
-            for (var j = 0; j < 4; j++) {
+        for (var i = 0; i < 12; i++) {
+            for (var j = 0; j < 2; j++) {
                 (function () {
-                    var tmp = new Brick(60 * i + 300, j * 60 + 200, 30, 30, colors[j % colors.length].clone());
+                    var tmp = new Brick(60 * i + 200, j * 60 + 200, 30, 30, colors[j % colors.length].clone());
                     that.addChild(tmp);
                     bricks.push(tmp);
                 })();
@@ -375,7 +376,7 @@ document.getElementById("sound").addEventListener('click', function () {
 });
 
 // Create the game container
-var game = new ex.Engine(800, 600, 'game');
+var game = new ex.Engine(1066, 540, 'game');
 
 // Create the camera
 game.camera = new ex.BaseCamera(game);

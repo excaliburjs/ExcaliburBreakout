@@ -12,14 +12,15 @@ canvas {
     margin: auto;
     display: block;
     border-radius: 20px;
+    max-width: 100%;
     cursor: none;
+    -ms-touch-action:none;
 }
 
 .container {
-    padding: 10px;
     display: block;
     margin: auto;
-    width: 800px;
+    max-width: 1066px;
 }
 
 #sound {

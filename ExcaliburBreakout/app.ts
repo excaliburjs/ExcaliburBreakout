@@ -22,7 +22,7 @@ document.getElementById("sound").addEventListener('click', function () {
 });
 
 // Create the game container
-var game = new ex.Engine(800, 600, 'game');
+var game = new ex.Engine(1066, 540, 'game');
 
 // Create the camera
 game.camera = new ex.BaseCamera(game);

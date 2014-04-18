@@ -27,10 +27,10 @@ class NextLevel extends ex.Scene {
         var colors: ex.Color[] = [ex.Color.Violet, ex.Color.Red, ex.Color.Orange, ex.Color.Yellow];
         var bricks: ex.Actor[] = [];
         var that = this;
-        for (var i = 0; i < 4; i++) {
-            for (var j = 0; j < 4; j++) {
+        for (var i = 0; i < 12; i++) {
+            for (var j = 0; j < 2; j++) {
                 (function () {
-                    var tmp = new Brick(60 * i + 300, j * 60+200, 30, 30, colors[j % colors.length].clone());
+                    var tmp = new Brick(60 * i + 200, j * 60+200, 30, 30, colors[j % colors.length].clone());
                     that.addChild(tmp);
                     bricks.push(tmp);
                 })();

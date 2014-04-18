@@ -7,7 +7,7 @@
         var colors: ex.Color[] = [ex.Color.Violet, ex.Color.Red, ex.Color.Orange, ex.Color.Yellow];
         var bricks: ex.Actor[] = [];
         var that = this;
-        for (var i = 0; i < 7; i++) {
+        for (var i = 0; i < 10; i++) {
             for (var j = 0; j < 4; j++) {
                 (function () {
                     var tmp = new Brick(100 * i + 30, j * 50, 90, 30, colors[j].clone());
@@ -51,7 +51,8 @@
         });
 
         engine.on('touchmove', (e?: ex.TouchMove) => {
-            paddle.x = e.x - paddle.getWidth() / 2;
+            var pos = e.y * (engine.getWidth() / engine.getHeight());
+            paddle.x = pos;
         });
 
         this.onActivate = function () {

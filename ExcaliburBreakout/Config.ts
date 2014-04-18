@@ -36,9 +36,9 @@ var State = {
 
 
 var Resources = {
-    Bounce: new ex.Sound("./Sounds/bounce.wav"),
-    Explode: new ex.Sound("./Sounds/break.wav"),
-    Fail: new ex.Sound("./Sounds/fail.wav")
+    Bounce: new ex.Sound("./Sounds/bounce.mp3", "./Sounds/bounce.wav"),
+    Explode: new ex.Sound("./Sounds/break.mp3","./Sounds/break.wav"),
+    Fail: new ex.Sound("./Sounds/fail.mp3", "./Sounds/fail.wav")
 }
 
 Resources.Bounce.setVolume(.2);
